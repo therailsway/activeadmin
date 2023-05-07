@@ -2,59 +2,62 @@
 redirect_from: /docs/documentation.html
 ---
 
-Active Admin is a framework for creating administration style interfaces. It
-abstracts common business application patterns to make it simple for developers
-to implement beautiful and elegant interfaces with very little effort.
+Active Admin 是一款用于生成 Ruby on Rails 管理界面的插件。它通过高度概括总结常见商业应用程序的逻辑模式，化繁为简，使开发者只需使用很少的代码就能生成漂亮优雅的界面。
 
-# Getting Started
+# 开始
 
-Active Admin is released as a Ruby Gem. The gem is to be installed within a Ruby
-on Rails application. To install, simply add the following to your Gemfile:
+Active Admin 以 Ruby Gem 形式发布。该 Gem 在 Ruby on Rails 应用内安装。安装的最简单方式就是在您的 Gemfile 内添加下面代码：
 
 ```ruby
 # Gemfile
 gem 'activeadmin'
 ```
 
-After updating your bundle, run the installer
+如果使用 Devise 做为您的用户认证系统，需要在 Gemfile 中添加 `devise` Gem
+
+```ruby
+# Gemfile
+gem 'devise'
+```
+
+更新 bundle 后，运行生成器
 
 ```bash
 rails generate active_admin:install
 ```
 
-The installer creates an initializer used for configuring defaults used by
-Active Admin as well as a new folder at `app/admin` to put all your admin
-configurations.
+生成器会创建一个用于配置默认设置的初始化文件和用于放置管理配置的 `app/admin` 文件夹。
 
-Migrate your db and start the server:
+运行数据库维护迁移，启动服务器：
 
 ```bash
 $> rails db:migrate
+# 如果您使用 Devise，添加默认用户
+$> rails db:seed
 $> rails server
 ```
 
-Visit `http://localhost:3000/admin` and log in using:
+访问 `http://localhost:3000/admin`，登录：
 
 * __User__: admin@example.com
 * __Password__: password
 
-Voila! You&#8217;re on your brand new Active Admin dashboard.
+哇！您已经登录到您的新 Active Admin 管理系统的首页了。
 
-To register your first model, run:
+注册您的第一个模型，运行：
 
 ```bash
 $> rails generate active_admin:resource
         [MyModelName]
 ```
 
-This creates a file at `app/admin/my_model_names.rb` for configuring the
-resource. Refresh your web browser to see the interface.
+这将创建用于配置资源的文件 `app/admin/my_model_names.rb`，刷新您的浏览器查看新变化。
 
-# Next Steps
+# 接下来
 
-Now that you have a working Active Admin installation, learn how to customize it:
+现在您已经拥有一个可以正常运行的 Active Admin 了，学习更多定制知识：
 
-* [Customize the Index Page](3-index-pages.md)
-* [Customize the New and Edit Form](5-forms.md)
-* [Customize the Show Page](6-show-pages.md)
-* [Customize the Resource in General](2-resource-customization.md)
+* [定制索引页](3-index-pages.md)
+* [定制新建和编辑表单](5-forms.md)
+* [定制展示页](6-show-pages.md)
+* [定制资源常用方式](2-resource-customization.md)

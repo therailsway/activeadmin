@@ -2,9 +2,9 @@
 redirect_from: /docs/0-installation.html
 ---
 
-# Installation
+# 安装
 
-Active Admin is a Ruby Gem.
+Active Admin 是一个 Ruby Gem。
 
 ```ruby
 gem 'activeadmin'
